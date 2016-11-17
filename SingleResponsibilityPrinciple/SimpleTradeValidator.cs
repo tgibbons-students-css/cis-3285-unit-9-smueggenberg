@@ -40,6 +40,13 @@ namespace SingleResponsibilityPrinciple
                 return false;
             }
 
+            // Validate trade amount is within bounds
+            if (tradeAmount <= 1000 || tradeAmount >= 100000)
+            {
+                logger.LogWarning("Trade amount out of bounds. Trade must be between 1,000 and 100,000: '{0}'", tradeData[1]);
+                return false;
+            }
+
             return true;
         }
     }
